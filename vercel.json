@@ -3,15 +3,14 @@
     "installCommand": "yarn install",
     "buildCommand": "turbo run build --filter=auth...",
     "outputDirectory": "apps/microservices/auth/dist",
-    "builds": [
-        {
-            "src": "apps/microservices/auth/dist/main.js",
-            "use": "@vercel/node"
+    "functions": {
+        "api/index.js": {
+            "runtime": "vercel-node@3.0.0"
         }
-    ],
+    },
     "routes": [
         {
-            "src": "/api/(.*)",
+            "src": "/(.*)",
             "dest": "apps/microservices/auth/dist/main.js"
         }
     ]
