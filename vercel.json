@@ -5,14 +5,14 @@
     "outputDirectory": "apps/microservices/auth/dist",
     "builds": [
         {
-            "src": "apps/microservices/auth/src/main.ts",
+            "src": "apps/microservices/auth/dist/main.js",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/api/auth/(.*)",
-            "dest": "/apps/microservices/auth/src/main.ts"
+            "dest": "apps/microservices/auth/dist/main.js"
         }
     ]
 }
