@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "installCommand": "yarn install",
+    "buildCommand": "yarn workspace @repo/db build && yarn workspace @repo/nest-js build && yarn workspace auth build",
+    "outputDirectory": "apps/microservices/auth/dist",
+    "builds": [
+        {
+            "src": "apps/microservices/auth/src/main.ts",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/auth/(.*)",
+            "dest": "/apps/microservices/auth/src/main.ts"
+        }
+    ]
+}
