@@ -11,7 +11,7 @@
     ],
     "routes": [
         {
-            "src": "/api/(.*)",
+            "src": "/(.*)",
             "dest": "apps/microservices/auth/dist/main.js"
         }
     ]
